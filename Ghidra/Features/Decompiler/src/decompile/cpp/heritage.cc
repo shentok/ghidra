@@ -1122,7 +1122,7 @@ void Heritage::guard(const Address &addr,int4 size,bool guardPerformed,
 
   for(iter=read.begin();iter!=read.end();++iter) {
     vn = *iter;
-    if (vn->getSize() < size)
+    if (vn->getSize() < size && !vn->hasNoDescend())
       *iter = vn = normalizeReadSize(vn,addr,size);
     vn->setActiveHeritage();
   }
